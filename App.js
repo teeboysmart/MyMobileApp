@@ -7,6 +7,7 @@ import * as SplashScreen from "expo-splash-screen";
 import Welcome from "./WelcomeSection/welcome";
 import { StatusBar } from "expo-status-bar";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { enableScreens } from 'react-native-screens'
 
 // keep SplashScreen  visible  while we fetch the resources
 SplashScreen.preventAutoHideAsync();
@@ -99,20 +100,21 @@ export default function App() {
     }
  ]
 
+ enableScreens();
+
  if(loading) return null
 
  if(isFirstTimeLoad) return(
-     <>
-         <StatusBar hidden/>
-       <Welcome onDone={handleDone} Slide={Slide}/>
-     </>
+  <ThemeContext.Provider  value={{theme, updateTheme}}>
+  <AllAppRoot/>
+  </ThemeContext.Provider>
    
   )
 
-  if(!isFirstTimeLoad) return (
-    <ThemeContext.Provider  value={{theme, updateTheme}}>
-    <AllAppRoot/>
-    </ThemeContext.Provider>
+  // if(!isFirstTimeLoad) return (
+  //   <ThemeContext.Provider  value={{theme, updateTheme}}>
+  //   <AllAppRoot/>
+  //   </ThemeContext.Provider>
 
-  )
+  // )
 }

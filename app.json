@@ -21,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/splash.jpeg",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.teeboy.MyMobileApp"
     },
     "web": {
       "favicon": "./assets/images/splash.jpeg"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "e566054b-ec55-44a9-957f-a3f8c55ccb18"
+      }
     }
   },
   "react-native-google-mobile-ads": {
